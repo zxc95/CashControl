@@ -21,6 +21,13 @@ public class Record {
         this._comment = _comment;
     }
 
+    public Record(int _date, int _sum, int _category, String _comment) {
+        this._date = _date;
+        this._sum = _sum;
+        this._category = _category;
+        this._comment = _comment;
+    }
+
     public int get_id() {
         return _id;
     }
