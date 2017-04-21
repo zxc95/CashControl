@@ -20,7 +20,7 @@ public final class DbContract {
 
         public static final String CREATE_TABLE = "CREATE TABLE " +
                 TABLE_NAME + " (" +
-                _ID + " INTEGER PRIMARY KEY," +
+                _ID + INTEGER_TYPE + " PRIMARY KEY," +
                 COLUMN_NAME_DATE + INTEGER_TYPE + COMMA_SEP +
                 COLUMN_NAME_SUM + INTEGER_TYPE + COMMA_SEP +
                 COLUMN_NAME_CATEGORY + INTEGER_TYPE + COMMA_SEP +
