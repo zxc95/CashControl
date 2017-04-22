@@ -2,14 +2,14 @@
     <string name="app_name">CashControl</string>
     <string name="com_text">Комментарий</string>
     <string name="date_text">Крайний срок</string>
-    <string name="button_send">Добавить</string>
+    <string name="add_button">Добавить</string>
     <string name="sum_text">Сумма</string>
     <string-array name="categories_array">
-        <item>Без категории</item>
-        <item>Дом</item>
-        <item>Работа</item>
-        <item>Еда</item>
-        <item>Машина</item>
-        <item>Здоровье</item>
+        <item id="0">Без категории</item>
+        <item id="1">Дом</item>
+        <item id="2">Работа</item>
+        <item id="3">Еда</item>
+        <item id="4">Машина</item>
+        <item id="5">Здоровье</item>
     </string-array>
 </resources>

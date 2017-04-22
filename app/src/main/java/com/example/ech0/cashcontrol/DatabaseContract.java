@@ -2,14 +2,14 @@ package com.example.ech0.cashcontrol;
 
 import android.provider.BaseColumns;
 
-public final class DbContract {
+public final class DatabaseContract {
     public static final  int    DATABASE_VERSION   = 1;
     public static final  String DATABASE_NAME      = "records.db";
     private static final String TEXT_TYPE          = " TEXT";
     private static final String INTEGER_TYPE       = " INTEGER";
     private static final String COMMA_SEP          = ",";
 
-    private DbContract() {}
+    private DatabaseContract() {}
 
     public static class RecordsTable implements BaseColumns {
         public static final String TABLE_NAME = "records";
