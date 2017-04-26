@@ -10,16 +10,14 @@ import android.widget.TextView;
 
 
 public class TableCursorAdapter extends CursorAdapter {
-    private LayoutInflater cursorInflater;
 
     public TableCursorAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
-        cursorInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return cursorInflater.inflate(R.layout.item_record, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.item_record, parent, false);
     }
 
     @Override
