@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            startActivity(new Intent(MainActivity.this, MainActivity.class));
-            finish();
+        SQLiteDatabase db = DbHandler.getReadableDatabase();
+        tableAdapter.changeCursor(db.rawQuery("SELECT * FROM " + DatabaseContract.RecordsTable.TABLE_NAME, null));
+        tableAdapter.notifyDataSetChanged();
     }
 
     protected void onDestroy(){
