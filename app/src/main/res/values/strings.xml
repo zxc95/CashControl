@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">CashControl</string>
-    <string name="com_text">Комментарий</string>
-    <string name="date_text">Крайний срок</string>
-    <string name="add_button">Добавить</string>
-    <string name="sum_text">Сумма</string>
+    <string name="com_text">Comment</string>
+    <string name="date_text">Deadline</string>
+    <string name="add_button">Add</string>
+    <string name="sum_text">Sum</string>
+    <string name="del_text">Delete</string>
     <string-array name="categories_array">
-        <item id="0">Без категории</item>
-        <item id="1">Дом</item>
-        <item id="2">Работа</item>
-        <item id="3">Еда</item>
-        <item id="4">Машина</item>
-        <item id="5">Здоровье</item>
+        <item id="0">No category</item>
+        <item id="1">Home</item>
+        <item id="2">Work</item>
+        <item id="3">Food</item>
+        <item id="4">Car</item>
+        <item id="5">Health</item>
     </string-array>
 </resources>

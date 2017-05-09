@@ -39,5 +39,6 @@ public class AddRecordActivity extends AppCompatActivity {
 
         db.insert(DatabaseContract.RecordsTable.TABLE_NAME, null, values);
         db.close();
+        finish();
     }
 }

@@ -13,25 +13,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    DatabaseHandler DbHandler;
     Cursor cursor;
+    TableCursorAdapter tableAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DatabaseHandler DbHandler = new DatabaseHandler(this);
+        DbHandler = new DatabaseHandler(this);
         SQLiteDatabase db = DbHandler.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM " + DatabaseContract.RecordsTable.TABLE_NAME, null);
 
         ListView lvRecords = (ListView) findViewById(R.id.lvRecords);
-        TableCursorAdapter tableAdapter = new TableCursorAdapter(this, cursor, 0);
+        tableAdapter = new TableCursorAdapter(this, cursor, 0);
         lvRecords.setAdapter(tableAdapter);
     }
 
     public void addRecordForm(View view) {
         Intent intent = new Intent(this, AddRecordActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    public void delRecord(View view) {
+        SQLiteDatabase db = DbHandler.getWritableDatabase();
+        db.delete(DatabaseContract.RecordsTable.TABLE_NAME, "_id =" + view.getTag(), null);
+        tableAdapter.changeCursor(db.rawQuery("SELECT * FROM " + DatabaseContract.RecordsTable.TABLE_NAME, null));
+        tableAdapter.notifyDataSetChanged();
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            startActivity(new Intent(MainActivity.this, MainActivity.class));
+            finish();
     }
 
     protected void onDestroy(){
