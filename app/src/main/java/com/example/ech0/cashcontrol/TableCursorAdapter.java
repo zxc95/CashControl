@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class TableCursorAdapter extends CursorAdapter {
 
@@ -24,19 +28,32 @@ public class TableCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        //db for cat
+        DatabaseHandler DbHandler = new DatabaseHandler(context);
+        SQLiteDatabase db = DbHandler.getReadableDatabase();
+
+        //binds
+        view.setTag(cursor.getInt(cursor.getColumnIndexOrThrow("_id")));
         TextView tvSum = (TextView) view.findViewById(R.id.tvSum);
         TextView tvCat = (TextView) view.findViewById(R.id.tvCat);
-        TextView tvDate =(TextView) view.findViewById(R.id.tvDate);
+        TextView tvDate = (TextView) view.findViewById(R.id.tvDate);
         TextView tvCom = (TextView) view.findViewById(R.id.tvCom);
-        Button delBut = (Button) view.findViewById(R.id.delBut);
-        delBut.setTag(cursor.getInt(cursor.getColumnIndexOrThrow("_id")));
+
+        //get data from table
         int sum = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.RecordsTable.COLUMN_NAME_SUM));
-        int cat = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.RecordsTable.COLUMN_NAME_CATEGORY));
-        int date = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseContract.RecordsTable.COLUMN_NAME_DATE));
+        String cat = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.RecordsTable.COLUMN_NAME_CATEGORY));
+        long dateLong = cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseContract.RecordsTable.COLUMN_NAME_DATE));
         String com = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.RecordsTable.COLUMN_NAME_COMMENT));
+
+        //format date
+        Date date = new Date(dateLong);
+        DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String dateFormatted = formatter.format(date);
+
+        //set values
         tvSum.setText(String.valueOf(sum));
         tvCat.setText(String.valueOf(cat));
-        tvDate.setText(String.valueOf(date));
+        tvDate.setText(dateFormatted);
         tvCom.setText(com);
     }
 }

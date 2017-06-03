@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void delRecord(View view) {
+        LinearLayout parent = (LinearLayout) view.getParent();
         SQLiteDatabase db = DbHandler.getWritableDatabase();
-        db.delete(DatabaseContract.RecordsTable.TABLE_NAME, "_id =" + view.getTag(), null);
+        db.delete(DatabaseContract.RecordsTable.TABLE_NAME, "_id =" + parent.getTag(), null);
         tableAdapter.changeCursor(db.rawQuery("SELECT * FROM " + DatabaseContract.RecordsTable.TABLE_NAME, null));
         tableAdapter.notifyDataSetChanged();
     }

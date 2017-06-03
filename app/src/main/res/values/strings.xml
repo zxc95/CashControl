@@ -4,7 +4,8 @@
     <string name="date_text">Deadline</string>
     <string name="add_button">Add</string>
     <string name="sum_text">Sum</string>
-    <string name="del_text">Delete</string>
+    <string name="done_text">Done</string>
+    <string name="ok_text">OK</string>
     <string-array name="categories_array">
         <item id="0">No category</item>
         <item id="1">Home</item>

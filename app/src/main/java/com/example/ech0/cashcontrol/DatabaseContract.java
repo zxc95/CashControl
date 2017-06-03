@@ -1,5 +1,6 @@
 package com.example.ech0.cashcontrol;
 
+import android.content.ContentValues;
 import android.provider.BaseColumns;
 
 public final class DatabaseContract {
@@ -20,10 +21,10 @@ public final class DatabaseContract {
 
         public static final String CREATE_TABLE = "CREATE TABLE " +
                 TABLE_NAME + " (" +
-                _ID + INTEGER_TYPE + " PRIMARY KEY," +
+                _ID + INTEGER_TYPE + " PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
                 COLUMN_NAME_DATE + INTEGER_TYPE + COMMA_SEP +
                 COLUMN_NAME_SUM + INTEGER_TYPE + COMMA_SEP +
-                COLUMN_NAME_CATEGORY + INTEGER_TYPE + COMMA_SEP +
+                COLUMN_NAME_CATEGORY + TEXT_TYPE + COMMA_SEP +
                 COLUMN_NAME_COMMENT + TEXT_TYPE + ")";
         public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     }
