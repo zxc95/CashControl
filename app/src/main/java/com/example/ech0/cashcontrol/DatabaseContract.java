@@ -1,6 +1,5 @@
 package com.example.ech0.cashcontrol;
 
-import android.content.ContentValues;
 import android.provider.BaseColumns;
 
 public final class DatabaseContract {

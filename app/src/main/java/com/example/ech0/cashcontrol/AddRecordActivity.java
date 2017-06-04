@@ -1,15 +1,11 @@
 package com.example.ech0.cashcontrol;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -41,7 +37,6 @@ public class AddRecordActivity extends AppCompatActivity {
         SQLiteDatabase db = DbHandler.getWritableDatabase();
 
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
-        //EditText dateText = (EditText)findViewById(R.id.dateText);
         EditText sumText = (EditText)findViewById(R.id.sumText);
         EditText comText = (EditText)findViewById(R.id.comText);
 
@@ -57,7 +52,8 @@ public class AddRecordActivity extends AppCompatActivity {
     }
 
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.setCalledByView(v);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 }

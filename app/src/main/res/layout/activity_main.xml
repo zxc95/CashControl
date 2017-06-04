@@ -5,6 +5,30 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
+
+    <EditText
+        android:id="@+id/fromDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="setFromDate"
+        android:ems="10"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/toDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="setToDate"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/dateFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="applyDateFilter"
+        android:text="Button" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"

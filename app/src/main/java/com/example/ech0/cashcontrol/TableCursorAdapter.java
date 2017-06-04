@@ -28,10 +28,6 @@ public class TableCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        //db for cat
-        DatabaseHandler DbHandler = new DatabaseHandler(context);
-        SQLiteDatabase db = DbHandler.getReadableDatabase();
-
         //binds
         view.setTag(cursor.getInt(cursor.getColumnIndexOrThrow("_id")));
         TextView tvSum = (TextView) view.findViewById(R.id.tvSum);
