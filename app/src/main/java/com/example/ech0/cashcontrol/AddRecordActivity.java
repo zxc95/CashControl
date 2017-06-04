@@ -54,6 +54,7 @@ public class AddRecordActivity extends AppCompatActivity {
     public void showDatePickerDialog(View v) {
         DatePickerFragment newFragment = new DatePickerFragment();
         newFragment.setCalledByView(v);
+        newFragment.setCalendar(c);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 }
